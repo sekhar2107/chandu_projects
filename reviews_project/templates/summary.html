@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Summary</title>
+  <style>
+    body{font-family: Inter, Arial;background:linear-gradient(180deg,#f8fafc,#ffffff);padding:30px}
+    .wrap{max-width:1000px;margin:20px auto}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    a{color:#374151;text-decoration:none}
+    .card{background:#fff;padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .url{font-size:14px;color:#6b7280;margin-bottom:8px}
+    .summary{font-size:16px;color:#0f172a;line-height:1.6}
+    .extracted{margin-top:14px;background:#f1f5f9;padding:12px;border-radius:8px;color:#475569}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecfeff;color:#065f46;margin-right:8px;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div><a href="{% url 'home' %}">Analyze another</a></div>
+      <div><a href="{% url 'logout' %}">Logout</a></div>
+    </div>
+
+    <div class="card">
+      <div class="url">Source: <a href="{{ url }}" target="_blank">{{ url }}</a></div>
+      <div class="tag">Auto-summarized</div>
+      <h2>Summary</h2>
+      <div class="summary">{{ summary }}</div>
+
+    
+    </div>
+  </div>
+</body>
+</html>

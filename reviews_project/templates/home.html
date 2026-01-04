@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Analyze Reviews</title>
+  <style>
+    body{font-family: Inter, Arial;background:#f8fafc}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:#fff;border-bottom:1px solid #eef2ff}
+    .brand{font-weight:700;color:#0f172a}
+    .logout{color:#94a3b8;text-decoration:none}
+    .container{max-width:900px;margin:34px auto;padding:24px}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 24px rgba(15,23,42,0.04)}
+    input[type=text]{width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef7}
+    .btn{background:#8b5cf6;color:#fff;padding:10px 16px;border-radius:10px;border:none;margin-top:12px}
+    .hint{color:#64748b;margin-top:8px;font-size:13px}
+    .msg{padding:10px;border-radius:8px;margin-bottom:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Review Analyzer</div>
+    <div>
+      <a class="logout" href="{% url 'logout' %}">Logout</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      {% for message in messages %}
+        <div class="msg {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+      {% endfor %}
+      <h3>Enter review page URL</h3>
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="url" placeholder="https://example.com/company/reviews/..." required>
+        <button class="btn" type="submit">Analyze & Summarize</button>
+      </form>
+      <p class="hint">After submission you'll see a summarized card with highlighted sentiment.</p>
+    </div>
+  </div>
+</body>
+</html>
