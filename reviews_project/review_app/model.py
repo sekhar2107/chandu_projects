@@ -10,7 +10,7 @@ SCRAPER_API_KEY = "YOUR_SCRAPER_API_KEY" # Replace with your ScraperAPI key
 client = OpenAI(
 
     base_url="https://router.huggingface.co/v1",
-    api_key="YOUR_HUGGINGFACE_API_KEY"  # Replace, 
+    api_key="YOUR_HUGGINGFACE_API_KEY"  # Replace with HuggingfaceAPI key"
 )
 
 
